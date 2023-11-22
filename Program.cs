@@ -87,7 +87,7 @@
             Console.WriteLine("The accuracy across " + sampleSize +
                 " samples, was: " + CalculateAccuracyPercentage(outputs, targetValues) +
                 "%\n");
-
+             
 
             for (int i = 0; i < numBatches; i++)
             {

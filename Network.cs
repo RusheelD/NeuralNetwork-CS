@@ -16,8 +16,8 @@ namespace MachineLearning
 
         public Network(int[] shape, double learningRate) 
         { 
-            if(shape == null) throw new ArgumentNullException("shape cannot be null");
-            if(shape.Length < 1) throw new ArgumentException("shape cannot be an empty array", "shape");
+            if (shape == null) throw new ArgumentNullException("shape cannot be null");
+            if (shape.Length < 1) throw new ArgumentException("shape cannot be an empty array", "shape");
 
             this.shape = shape;
             this.learningRate = learningRate;
@@ -28,7 +28,7 @@ namespace MachineLearning
             {
 
                 this.layers = new Layer[shape.Length - 1];
-                for(int i = 1; i < shape.Length; i++)
+                for (int i = 1; i < shape.Length; i++)
                 {
                     this.layers[i - 1] = new Layer(shape[i - 1], shape[i]);
                 }

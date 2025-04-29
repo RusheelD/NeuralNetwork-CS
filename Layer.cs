@@ -34,7 +34,7 @@ namespace MachineLearning
                 this.nodes[i] = new Node(this.numInputs);
                 this.costGradientB[i] = 0;
 
-                for(int j = 0; j < numInputs; j++)
+                for (int j = 0; j < numInputs; j++)
                 {
                     this.costGradientW[j, i] = 0;
                 }
@@ -48,7 +48,7 @@ namespace MachineLearning
         public double[] Forward(double[] inputs, Activation ActivationFunction)
         {
             this.inputs = inputs;
-            for(int i = 0; i < size; i++)
+            for (int i = 0; i < size; i++)
             {
                 this.weightedOutputs[i] = this.nodes[i].Forward(inputs);
                 this.activatedOutputs[i] = ActivationFunction(this.weightedOutputs[i]);
@@ -61,7 +61,7 @@ namespace MachineLearning
         {
             double[] nodeValues = new double[expectedOutputs.Length];
 
-            for(int i = 0; i < nodeValues.Length; i++)
+            for (int i = 0; i < nodeValues.Length; i++)
             {
                 double costDerivative = CostDerivativeFunction(this.activatedOutputs[i], expectedOutputs[i]);
                 double activationDerivative = ActivationDerivativeFunction(this.activatedOutputs[i]);
@@ -76,10 +76,10 @@ namespace MachineLearning
         {
             double[] newNodeValues = new double[this.size];
 
-            for(int curNode = 0; curNode < this.size; curNode++)
+            for (int curNode = 0; curNode < this.size; curNode++)
             {
                 double newNodeValue = 0;
-                for(int prevNode = 0; prevNode < prevLayer.size; prevNode++)
+                for (int prevNode = 0; prevNode < prevLayer.size; prevNode++)
                 {
                     double weightedInputDerivative = prevLayer.nodes[prevNode].weights[curNode];
                     newNodeValue += weightedInputDerivative * prevNodeValues[prevNode];
@@ -93,9 +93,9 @@ namespace MachineLearning
 
         public void UpdateGradients(double[] nodeValues)
         {
-            for(int node = 0; node < this.size; node++)
+            for (int node = 0; node < this.size; node++)
             {
-                for(int input = 0; input < this.numInputs; input++)
+                for (int input = 0; input < this.numInputs; input++)
                 {
                     double weightCostDerivitave = this.inputs[input] * nodeValues[node];
                     this.costGradientW[input, node] += weightCostDerivitave;
@@ -169,7 +169,7 @@ namespace MachineLearning
 
         public void SetValues(double[] values)
         {
-            for(int i = 0; i < this.size; i++)
+            for (int i = 0; i < this.size; i++)
             {
                 this.nodes[i].value = values[i];
             }

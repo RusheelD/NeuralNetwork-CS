@@ -20,7 +20,7 @@ namespace MachineLearning
             this.weights = new double[numInputs];
             Random random = new Random();
 
-            for(int i = 0; i < numInputs;i++)
+            for (int i = 0; i < numInputs;i++)
             {
                 this.weights[i] = 2 * random.NextDouble() - 1;
             }

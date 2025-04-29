@@ -34,7 +34,7 @@
             Network network = new Network(shape, 0.0005);
 
 
-            for(int i = 0; i < numBatches; i++)
+            for (int i = 0; i < numBatches; i++)
             {
                 Data[] batchData = DataGenerator.ParityDataGenerator(bitLength, batchSize);
                 network.BackPropogate(batchData, Activations.Sigmoid, Activations.Sigmoid);
@@ -61,13 +61,13 @@
                 ", was: " + Costs.AvgSquaredDifference(outputs, targetValues));
             */
 
-            int numAttributes = 100;
+            int numAttributes = 10;
             int batchSize = 1000;
-            int sampleSize = 100;
-            int numBatches = 1000;
+            int sampleSize = 1000;
+            int numBatches = 10000;
 
-            int[] shape = { numAttributes, 10, 5, 2 };
-            Network network = new Network(shape, 0.1);
+            int[] shape = { numAttributes, 2 * numAttributes, numAttributes / 2, 2 };
+            Network network = new Network(shape, 0.001);
 
 
             double[][] targetValues = new double[sampleSize][];
@@ -118,7 +118,7 @@
         {
             double numAccurate = 0;
 
-            for(int i = 0; i < outputs.Length; i++)
+            for (int i = 0; i < outputs.Length; i++)
             {
                 double maxOutput = outputs[i].Max();
                 double maxTarget = expected[i].Max();
@@ -136,7 +136,7 @@
         {
             int ret = (int)inputs[0];
 
-            for(int i = 1; i < inputs.Length; i++)
+            for (int i = 1; i < inputs.Length; i++)
             {
                 ret ^= (int)inputs[i];
             }
@@ -148,13 +148,13 @@
         {
             string output = "{ ";
 
-            for(int i = 0; i < data.Length - 1; i++)
+            for (int i = 0; i < data.Length - 1; i++)
             {
                 output += data[i].ToString();
                 output += ", ";
             }
 
-            if(data.Length > 0)
+            if (data.Length > 0)
             {
                 output += data[data.Length - 1];
                 output += " ";

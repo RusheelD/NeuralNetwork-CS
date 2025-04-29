@@ -14,7 +14,7 @@ namespace MachineLearning
             Random random = new Random();
             ParityData[] data = new ParityData[numSamples];
 
-            for(int i = 0; i < numSamples; i++)
+            for (int i = 0; i < numSamples; i++)
             {
                 double[] bits = new double[bitLength];
                 for (int j = 0; j < bitLength; j++)
@@ -35,7 +35,7 @@ namespace MachineLearning
             Random random = new Random();
             FruitData[] data = new FruitData[numSamples];
 
-            for(int i = 0; i < numSamples; i++)
+            for (int i = 0; i < numSamples; i++)
             {
                 double[] attributes = new double[numAttributes];
                 for (int j = 0; j < numAttributes; j++)

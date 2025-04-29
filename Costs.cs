@@ -16,7 +16,7 @@ namespace MachineLearning
         public static double SquaredDifferences(double[] output, double[] expected)
         {
             double cost = 0;
-            for(int i = 0; i < output.Length; i++)
+            for (int i = 0; i < output.Length; i++)
             {
                 cost += SquaredDifference(output[i], expected[i]);
             }
